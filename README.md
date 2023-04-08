@@ -8,6 +8,6 @@ Notes based on some of my undergraduate Stats major courses since the summer bet
 
 - [Surveys, Sampling and Observational Data](https://github.com/HaoyueTan/Notes-for-Statistical-Science/blob/main/Surveys,%20Sampling%20and%20Observational%20Data/STA304%20Lecture%20Notes.tex) : This notes indicateds how to make proper estimations based on survey data. 
 
-- Probability : Strengthen understanding of each distributions by proofs and derivations. 
+- [Probability](https://github.com/HaoyueTan/Notes-for-Statistical-Science/blob/main/Probability/STA347%20Lecture%20notes.tex) : Strengthen understanding of each distributions by proofs and derivations. 
 
 - Statistical Computation: Still fixing and will be update once finished
