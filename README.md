@@ -10,4 +10,4 @@ Notes based on some of my undergraduate Stats major courses since the summer bet
 
 - [Probability](https://github.com/HaoyueTan/Notes-for-Statistical-Science/blob/main/Probability/STA347%20Lecture%20notes.tex) : Strengthen understanding of each distributions by proofs and derivations. 
 
-- Statistical Computation: Still fixing and will be update once finished
+- Statistical Computation: （fixing）
