@@ -1,0 +1,353 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[margin=1in,headheight=13.6pt]{geometry}
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{thrm}
+\newtheorem{thrm}{Theorem}[section]
+\theoremstyle{lma}
+\newtheorem{lma}{Lemma}[section]
+\theoremstyle{ppst}
+\newtheorem{ppst}{Proposition}[section]
+\theoremstyle{crlr}
+\newtheorem{crlr}{Corollary}[section]
+\usepackage{graphicx}
+\renewcommand{\baselinestretch}{1.5}
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+\usepackage{color}  
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true
+    linktoc=all
+    linkcolor=blue
+}
+\usepackage{fancyheadings}
+\pagestyle{fancyplain}
+\fancypagestyle{plain}{
+\renewcommand{\headrulewidth}{0.4pt}
+}
+\lhead{\fancyplain{Haoyue(Heather) Tan}{Haoyue(Heather) Tan}}
+\rhead{\fancyplain{STA304 lecture Notes}{STA304 Lecture Notes}}
+\title{STA304 - Surveys, Sampling and Observational Data}
+\author{Heather Tan}
+\date{Jan - Apr 2020}
+\begin{document}
+
+\maketitle	
+\tableofcontents
+\pagebreak
+
+\section{Basic Information}
+\begin{definition}
+	A Random Experiment is the process of observing the outcome of a chance event
+\end{definition}
+\begin{definition}
+	The elementary outcomes are all possible results of the random element
+\end{definition}
+\begin{definition}
+	The sample Space $(\Omega)$ is the set or collection of all the elementary outcomes. 
+\end{definition}
+E.g if the event was a coin toss
+\begin{itemize}
+	\item The random experiment consist of recording its outcome
+	\item the elementary outcomes are heads(H) and tails(T) 
+	\item $\Omega = \{H,T\}$
+\end{itemize}
+\subsection{Random Variable}
+A random variable $Y$ is a real-valued function defined over a sample space. It can be sued to identify numerical events that are of interest in an experiment.
+\begin{definition}
+	A random variable Y is said to be discrete if it can assume only finite or countable infinite number of distinct values
+\end{definition}
+\begin{definition}
+	A random variable Y is said to be continuous if it can take on any value of an interval.
+\end{definition}
+
+\subsection{Statistics Info}
+\subsubsection{Population Total}
+\begin{align*}
+	\tau_y &= \sum_{i=1}^N y(e_i) = \sum_{i=1}^N y_i = \sum_{i=1}^k N_iy_i\\
+	\tau_y &= N \mu_y, \mu_y = \frac{1}{N}\tau_y
+\end{align*}
+\subsubsection{Population Proportion}
+\textbf{Population Proportion }Proportion of elements which poses certain property, or belong to certain specified group. Define variable y taking two values:
+\begin{align*}
+	y(e) &= 
+	\begin{cases}
+		0 \quad \text{e does not have the property}\\
+		1 \quad \text{e has the property}
+	\end{cases}\\
+	p &= \frac{1}{N}\sum_{i=1}^N y(e_i) = \frac{M}{N} = \frac{\text{Number of elements with the property}}{Total number of elements} = \mu_y
+\end{align*}
+If two variables x,y are considered
+\subsubsection{Population Ratio}
+When two variables are considered, \textbf{Ratio of their means, or their totals:}
+\begin{align*}
+	R = \frac{\mu_u}{\mu_x} = \frac{N\cdot \tau_y}{N\cdot \tau_x} = \frac{\tau_y}{\tau_x} = R_{y/x}
+\end{align*}
+
+
+\section{Basic idea of sample survey design}
+\begin{itemize}
+	\item \textbf{Sample Survey} is a partial investigation of the finite population using samples. The purpose of sample survey is to obtain information about the population.
+	\item \textbf{Population} is a group of units defined according to the aims and objects of the survey. 
+	\item \textbf{Sampling} is the selection of part of the population.
+	\item \textbf{Sampling Method} is a scientific and objective procedure of selecting units from a population. It provides a sample that is expected to be representative of the population as a whole. It also provides procedures for estimation of the population parameters. 
+\end{itemize}
+
+\subsection{Basic Notations from statistics}
+\begin{itemize}
+	\item Population: $E = \{e_1,\cdots, e_N\}$
+	\item Population size: N
+	\item elements e, $e_i$
+	\item Variable: y,x z,t $\cdots \quad e\implies y(e)$
+	\item Range: $\{y(e), e\in E\}$
+	\item \textbf{Distribution, frequency distribution}: Proportion/percentage of elements with value in an interval [a,b], for any a and b
+	\item \textbf{Discrete variable} $Prob(y_i) = \frac{\text{Number of elements}\{e,y(e) = y_i\}}{N} = \frac{N_i}{N}$
+	\item \textbf{Continuous variable:} $Prob(a,b) = P(a<y<b) = \int_a^bf(y)dy$
+	\item $f(y):$ Density function
+\end{itemize}
+
+\subsection{Some technical definitions}
+\begin{itemize}
+	\item \textbf{Target Population: } population intended to be investigated(Sampled)
+	\item \textbf{Sampling Distribution: } Population effectively sampled 
+	\item Sampling units: Non-overlapping collections of elements that cover the population effective sampled(SUs)
+	\item \textbf{Frame: }List, or any technical device which provides sampling units, or access to sampling units
+	\item \textbf{Sample: } Collection of sampling units selected from a frame
+\end{itemize}
+
+
+\section{Design of Sample Survey}
+\subsection{General Procedure: }
+\begin{itemize}
+	\item Identify target survey group
+	\item Develop questions
+	\item Pilot or test the questions/survey
+	\item Determind the method of conducting the survey
+	\item Conduct the survey
+	\item Use an appropriate analysis technique to analyze the information collected.
+\end{itemize}
+
+\subsection{How to select a sample}
+\subsubsection{Cencus}
+Complete survey of a population.
+\subsubsection{Probability, or random sampling} 
+Method: Random sampling\\
+Different probability sampling designs have two things in common:
+\begin{itemize}
+	\item Every element in the population has a known nonzero probability(not necessarily equal) of being sampled
+	\item involves random selection at same point
+\end{itemize}
+E.g Simple random, systematic, Cluster, Double, Stratified
+\begin{itemize}
+	\item \textbf{Simple Random Samplings(SRS)} sample is selected "completely at random". No special constraints on the sample are imposed. An "unbiased" sample. 
+	\item \textbf{Stratified Sampling } The population is divided into subpopulations(strata). Random sample is selected from every stratum. Constraint imposed: stratification. i.e the population is divided into different subgroups and pick samples with specified ratio. divide into groups and randomly pick parts from each of the subgroups.\textbf{Homogeneity within subgroups}
+	\item \textbf{Cluster Sampling(One Stage)} The population is divided into large number of (small) groups(clusters), equal or non-equal. Clusters are selected "at random". Sample: All elements from selected clusters. Constraint imposed: clustering. i.e divided into subgroups and pick whole groups. \textbf{Heterogeneity within subgroups}
+	\item \textbf{Cluster Sampling(Two-stage)} The population is divided into large number of (bigger) groups(Cluster). \textbf{First stage: }sample of clusters selected. \textbf{Second: }sample of elements from each selected cluster. Sample: all selected elements. Constraint imposed: clustering. i.e divided into subgroups and pick some samples by ratios from some subgroups. 
+	\item \textbf{Clustering Sampling(Multi-stage)} The population is divided into clusters on several levels/stages - primary sample units(PSUs), secondary sampling units, ternary sampling units, ...Sampling is performed at every stage.  Sample: all sampling units selected at the last stage.  Constrained imposed: multi-clustering.
+	\item \textbf{Double Sampling(Two-phase sampling )} Sample from sample. First phase: a bigger sample and some basic measurements. Second phase: subsample from previously selected sample and more detailed measurements. 
+	\item \textbf{Systematic Sampling} Elements are selected from an ordered sampling frame. First element is selected at random, subsequent elements follow a predetermined pattern, usually an interval.
+	\item \textbf{Composite design} Most large scale surveys are done using cluster sampling combined with stratification, typically by clustering with strata. i.e divided into subgroups,then each subgroups divided into subsubgroups. Pick sample from each subusbgroups. 
+\end{itemize}
+
+
+\subsubsection{Nonrandom/nonprobability sampling} 
+Accidental sampling, quota sampling and purposive/judgemental sampling.\\
+E.g \textbf{Quota Sampling: } The criteria for selection of elements are based on quotas - assumptions regarding the population of interest. After the quotas are decided, the choice of actual sampling units to fit into quotas is mostly left to the interviewer.\\
+E.g \textbf{Snowball Sampling: } used to recruit more subjects into the sample. \\
+E.g other sampling methods include: convenience, judgment(Purposive)
+
+\subsection{Other methods of Data Collection}
+\begin{itemize}
+	\item \textbf{Observational Studies: } The researchers simply observe r measure the participants and do not assign any treatments or conditions. Participants are not asked to do anything differently
+	\item \textbf{Experiments: }The researchers manipulate something and measure the effect of the manipulation on some outcome of interest. Often participants are randomly assigned to the various conditions or treatments. 
+	\item \textbf{Confounding variable: } is a variable that both affect the response variable and also is related to the explanatory variable. The effect of a confounding variable on the response variable cannot be separated from the effect of the explanatory variable. 
+	\item \textbf{Randomized experiments} helps to control the influence of confounding variables. 
+\end{itemize}
+
+\subsubsection{Sources of Errors in Surveys}
+\textbf{Sampling Errors:} Due to random sampling(observing a random sample instead of the whole population), controlled by sample design, sample size and error bound. \\
+\textbf{Non-sampling Erros:} Caused by factors other than those related to sample selection. Are not easily identified or quantified.
+\begin{itemize}
+	\item imperfect sampling population
+	\item poorly designed questionnaire
+	\item selection bias, sampling bias
+	\item non-response problem
+	\item response error
+	\item systematic error
+	\item processing, editing entering error
+\end{itemize}
+\textbf{Inadequate Frame - coverage error: }The sampling design excludes or under-represents a specific group in the sample, deliberately or not. If the group is different, with respect to survey issues, bias will occur. \\
+\textbf{Selection bias, interview bias: }S Sample members are self-selected volunteers, as in voluntary samples. Individuals with strong opinions about the survey issues or those with substantial knowledge will tend to be over-represented, creating bias.\\
+\textbf{Interviewer error: } Occurs when interviewers incorrectly record information; are not neutral or objective; influence the respondent to answer in a particular way; or assume responses based on appearance or other characteristics.\\
+\textbf{Response Error(inaccurate error): }Caused by respondents intentionally or accidentally providing inaccurate responses. \\
+\textbf{Non-response bias: } failure to obtain a response from some unit because of absence, non-contact, refusal, not-able or some other reason.
+\begin{itemize}
+	\item Complete non-response i.e no data had been obtained at all from a select unit
+	\item Partial non-response i.e the answer to some questions have not been provided by a selected unit.
+\end{itemize} 
+
+\subsubsection{Methods of data collection}
+\begin{itemize}
+	\item Direct measurements
+	\item Personal interviews
+	\item Telephone interviews
+	\item Mailed questionnaires
+	\item Online internet surveys
+	\item Mobile data collection survey
+	\item Mixed-mode survey
+\end{itemize}
+
+\subsection{Sampling design process}
+\begin{enumerate}
+	\item Define Population
+	\item Determine sampling frame
+	\item Determine sampling procedure(probability or non-probability sampling)
+	\item Determine appropriate sample size
+	\item Execute sampling design
+\end{enumerate}
+
+\section{Simple Random Sampling}
+Simple random sampling of size n is the probability sampling design for which a fixed number of n units are selected from a population of N units such that every possible sample of n units has equal probability of being selected. \\
+SRS are EPSEM samples: Equal probability of Selection of Element Method
+
+\subsection{Simple Random Sample without replacement}
+m units are randomly selected from a population of size N without replacement.\\
+All sample of size n have the same probability of being selected. There are $N \choose n$ SRS.
+\subsubsection{Table of random numbers}
+\textbf{Table of random numbers: }List of digits produced by an RNG Convenient for manual/field/small size problem sampling; repeatable, easy to use. \\
+General use of the table
+\begin{enumerate}
+	\item Assign certain digits, or groups of digits to the events A1, A2,... you want to simulate, depending on P(A1), P(A2)
+	\item Decide how you will read the table, that is, select some digits from the table
+	\item Read the table, and see which one of the events has occured
+	\item Read the table from left to right, starting with the first row. Use first 4 digit out of every group of 5 digits until 8 elements are selected.
+\end{enumerate}
+
+\section{Inference of SRS}
+N = Population size\\
+Y = Population characteristic\\
+elements in population : $\{u_1,u_2,\cdots,u_N\}$\\
+$\mu = \frac{1}{N}\sum_{i=1}^Nu_i$\\
+$\sigma^2 = \frac{1}{N}\sum_{i=1}^N(u_i-\mu)^2 = \frac{1}{N}[\sum \mu_i^2-N\mu^2]$
+\subsection{Probability}
+\subsubsection{SRS}
+\textbf{The probability that sample S is selected: }
+\begin{align*}
+	p(S) &= \frac{1}{{N \choose n}}
+\end{align*}
+\subsubsection{SRSWR}
+\begin{align*}
+	P[y_i=u] = \frac{1}{N}
+\end{align*}
+\subsection{Inclusion probability of SRS}
+\begin{align*}
+	P[y_i=u_i, y_j=u_j] &= P[y_u=u_i]P[y_j=u_j|y_i=u_i] = \frac{1}{N}\cdot\frac{1}{N-1}\\
+	E[y_i,y_j] &= \sum_{i=1}^N\sum_{j=1}^N u_iu_jP[y_i=u_i, y_j=u_j]\\
+	&= \sum_{i=1}^N\sum_{i\neq j}u_iu_j\frac{1}{N(N-1)}\\
+	&= \frac{1}{N(N-1)}\sum_{i=1}^N\sum_{j\neq i}^Nu_iu_j\\
+	\sum_{i=1}^N\sum_{j=1}^Nu_iu_j& = \sum_{i=1}^N\sum_{j=i}^Nu_iu_j + \sum_{i=1}^N\sum_{j\neq i}^Nu_iu_j\\
+	\implies \sum_{i=1}^N\sum_{j\neq i}^Nu_iu_j &= \sum_{i=1}^N\sum_{j=1}^Nu_iu_j-\sum u_i^2\\
+	E[y_i,y_j] &= \frac{1}{N(N-1)}[(\sum u_i)^2-\sum u_i^2]\\
+	&= \frac{1}{N(N-1)}[(N\mu)^2-\sum u_i^2]\\
+	N\sigma^2 &= \sum u_i^2 - N\mu^2 \implies \sum u_i^2 = N\sigma^2+N\mu^2\\
+	E[y_i,y_j] &= \frac{1}{N(N-1)}[N^2\mu^2-N\sigma^2-\sum u_i^2]
+\end{align*}
+\subsubsection{Covariance under SRS}
+\begin{align*}
+	cov(y_i, y_j) &= E[(y_i-\mu)(y_j-\mu)]\\
+	 &= E[y_iy_j]-\mu^2\\
+	 &= \frac{1}{N(N-1)}[N^2\mu^2-N\sigma^2-\sum u_i^2] - \mu^2\\
+	 &= \frac{1}{N(N-1)}[N^2\mu^2-N\sigma^2-\sum u_i^2-\mu^2\cdot(N^2-N)] \\
+	 &= \frac{1}{N(N-1)}[N^2\mu^2-N\sigma^2-\sum u_i^2 - N^2\mu^2+N\mu^2] \\
+	 &=\frac{N\sigma^2}{N(N-1)} = \frac{-\sigma^2}{N-1}
+\end{align*}
+
+\subsection{Inference of Sample mean $\mu$}
+\subsubsection{$\hat{\mu}$ is unbiased: }
+\begin{align*}
+	E[\hat{\mu}] = E[\bar{y}] = E[\frac{1}{N}\sum y_n] = \frac{1}{N}\sum_{i=1}^NE[y_i] = \frac{1}{n}n\mu
+\end{align*}
+
+\subsubsection{Variance of $\hat{\mu}$ under SRSWR}
+\begin{align*}
+	Var(\hat{\mu})&=Var(\bar{y}) = Var(\frac{1}{N}\sum y_i)\\
+	 &= \frac{1}{n^2}\sum Var(y_i) = \frac{1}{n^2}\sum Var(y_i)\\
+	 &= \frac{1}{n^2}\sum \sigma^2 = \frac{\sigma^2}{n}
+\end{align*}
+
+\subsubsection{Variance of $\hat{\mu}$ under SRS}
+\begin{align*}
+	Var(\hat{\mu})&=Var(\bar{y}) = Var(\frac{1}{N}\sum y_i)\\
+	 &= \frac{1}{n^2}[\sum Var(y_i)+\sum_{i=1}\sum_{j\neq i}cov(y_i,y_j)]\\
+	 &= \frac{1}{n^2} [\sum \sigma^2 + \sum \sum_{j\neq i} \frac{-\sigma^2}{N-1}]\\
+	 &=\frac{1}{n^2}[N\sigma^2-\frac{-\sigma^2}{N-1}\frac{n(n-1)}{2}] = \frac{N-n}{N-1}\frac{\sigma^2}{n}
+\end{align*}
+if we want different i and j, we actually pick two element from the population and have $n\choose 2$ ways of picking such samples.
+\subsubsection{Summary of population mean $\mu = \bar{y}$}
+\begin{align*}
+	E(\bar{y}) &= E(\hat{mu}) = \mu\\
+	var(\bar{y}) &= \begin{cases}
+		\frac{\sigma^2}{n}\quad \text{SRSWR}\\
+		\frac{N-n}{N-1}\frac{\sigma^2}{n} \quad \text{SRS}
+	\end{cases}\\
+	\widehat{var(\bar{y})} &= \begin{cases}
+		\frac{S^2}{n} \quad \text{Unbiased in SRSWR}\\
+		(1-\frac{n}{N})\frac{S^2}{n} \text{unbiased in SRS}
+	\end{cases}
+\end{align*}
+
+\subsection{Inference on population variance $\sigma^2$}
+We consider $s^2 = \frac{1}{n-1}\sum(y_i-\bar{y})^2$
+\begin{align*}
+	E[s^2] &= \frac{1}{n-1}E[\sum(y_i-\bar{y})^2]\\
+	&= \frac{1}{n-1}\sum[E(y_i-\bar{y})^2]\\
+	&= \frac{1}{n-1}\sum E([(y_i-\mu)-(\bar{y}-\mu)]^2)\\
+	&= \frac{1}{n-1}\sum E([(y_i-\mu)^2-2(y_i-\mu)(\bar{y}-\mu)+(\bar{y}-\mu)^2]\\
+	&= \frac{1}{n-1}(\sum E[(y_i-\mu)^2]+\sum E[(\bar{y}-\mu)^2]\\
+	&= \frac{1}{n-1}[n\sigma^2-nVar(\bar{y})]
+\end{align*}
+\subsubsection{Estimation of $\sigma^2$ Under SRSWR}
+\begin{align*}
+	Var(\bar{y}) &= \frac{\sigma^2}{n}\\
+	E[s^2] &= \frac{1}{n-1}[n\sigma^2-nVar(\bar{y})] = \frac{1}{n-1}[n\sigma^2-n\sigma^2/n] = \sigma^2
+\end{align*}
+\subsubsection{Estimation of $\sigma^2$ Under SRS}
+\begin{align*}
+	Var(\bar{y}) &=\frac{N-n}{N-1}\frac{\sigma^2}{n}\\
+	E[s^2] &= \frac{1}{n-1}[n\sigma^2-nVar(\bar{y})] = \frac{1}{n-1}[n\sigma^2-n\frac{N-n}{N-1}\frac{\sigma^2}{n}] \\
+	&= \frac{1}{n-1}\sigma^2[\frac{Nn-n-N+n}{N-1}] = \frac{1}{n-1}\sigma^2\frac{N(n-1)}{N-1} = \frac{N}{N-1}\sigma^2\\
+	\widehat{Var(\hat{\mu})} &= (1-\frac{n}{N})\frac{s^2}{n}\\
+	B_{\hat{\mu}} &= 2\sigma_{\hat{\mu}} = 2 \sqrt{(1-\frac{n}{N})\frac{s^2}{n}}
+\end{align*}
+\subsubsection{Summary of Unbiased Estimation of $\sigma^2$}
+\begin{align*}
+	\hat{\sigma^2} &= \begin{cases}
+		S^2\quad \text{SRSWR}\\
+		\frac{N-1}{N}S^2 \quad \text{SRSS}
+	\end{cases}
+\end{align*}
+
+
+
+\subsection{Inference of Population Total $\tau$}
+\begin{align*}
+	\tau &= N\,u \implies \hat{\tau} = N\hat{\mu} = N\bar{y}\\
+	var(\hat{\tau}) &= var(N\bar{y}) = N^2var(\bar{y}) = N^2 \frac{N-n}{N-1}\frac{\sigma^2}{n}\\
+	\widehat{var(\hat{\tau})} &= \widehat{var(N\bar{y})} = N^2 \widehat{var(\bar{y})} = N^2 (1-\frac{n}{N})\frac{s^2}{n}
+\end{align*}
+
+\subsection{Inference of Population proportion p}
+For $y_1, y_2,\cdots, y_N, y_i = 1,0$
+
+
+
+\end{document}
