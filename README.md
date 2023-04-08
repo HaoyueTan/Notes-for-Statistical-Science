@@ -1,6 +1,6 @@
 # Notes-for-Statistical-Science
 
-Notes based on some of my undergraduate Stats major courses since the summer between Yr2 and Yr 3 ;) Since this is the subjects that I began to use LaTeX, and English is not my mother tongue, sry for the typos in advance. 
+Notes based on some of my undergraduate Stats major courses since the summer between Yr2 and Yr 3 as well as notes I learn during my research;) Since this is the subjects that I began to use LaTeX, and English is not my mother tongue, sry for the typos in advance.
 
 - Methods for Data Analysis: This note would construnct fundamental understanding of linear regression model including but not limit to its assumptions, formulars(based on OLS) and parameter inferences. 
 
